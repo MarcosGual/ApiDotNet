@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\mlgua\\Documents\\GitHub\\ApiDotNet\\apiUsuarios\\apiUsuarios.csproj",
+  "FilePath": "c:\\Users\\mlgua\\Documents\\GitHub\\ApiDotNet\\apiUsuarios\\apiFinal.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "6.0",
@@ -16295,7 +16295,7 @@
     ],
     "CSharpLanguageVersion": 1000
   },
-  "RootNamespace": "apiUsuarios",
+  "RootNamespace": "apiFinal",
   "Documents": [],
   "SerializationFormat": "0.2"
 }

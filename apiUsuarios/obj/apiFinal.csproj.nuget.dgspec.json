@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\mlgua\\Documents\\GitHub\\ApiDotNet\\apiUsuarios\\apiFinal.csproj": {}
+    "C:\\Users\\mlgua\\Documents\\GitHub\\ApiDotNet\\apiUsuarios\\apiFinal.csproj": {}
   },
   "projects": {
-    "c:\\Users\\mlgua\\Documents\\GitHub\\ApiDotNet\\apiUsuarios\\apiFinal.csproj": {
+    "C:\\Users\\mlgua\\Documents\\GitHub\\ApiDotNet\\apiUsuarios\\apiFinal.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\mlgua\\Documents\\GitHub\\ApiDotNet\\apiUsuarios\\apiFinal.csproj",
+        "projectUniqueName": "C:\\Users\\mlgua\\Documents\\GitHub\\ApiDotNet\\apiUsuarios\\apiFinal.csproj",
         "projectName": "apiFinal",
-        "projectPath": "c:\\Users\\mlgua\\Documents\\GitHub\\ApiDotNet\\apiUsuarios\\apiFinal.csproj",
+        "projectPath": "C:\\Users\\mlgua\\Documents\\GitHub\\ApiDotNet\\apiUsuarios\\apiFinal.csproj",
         "packagesPath": "C:\\Users\\mlgua\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\mlgua\\Documents\\GitHub\\ApiDotNet\\apiUsuarios\\obj\\",
+        "outputPath": "C:\\Users\\mlgua\\Documents\\GitHub\\ApiDotNet\\apiUsuarios\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mlgua\\AppData\\Roaming\\NuGet\\NuGet.Config",

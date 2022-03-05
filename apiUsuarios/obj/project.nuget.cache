@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Zz0ydhRJKc5CpSi5cxxG3ke5B1oZsFhQIYRsyDMXzS9KE9pvM1B4m73BxarfDn2iDSgw64cHeLVCr/tyzpCW+w==",
+  "dgSpecHash": "idI3EdPAOA0NQoVPcwREVd+G7VUlI4WqiVnTdSIoV0ZiYRASFWBeF9+96ZvAmUOtbmfKqiC1XocP3XyOpRJeVQ==",
   "success": true,
-  "projectFilePath": "c:\\Users\\mlgua\\Documents\\GitHub\\ApiDotNet\\apiUsuarios\\apiFinal.csproj",
+  "projectFilePath": "C:\\Users\\mlgua\\Documents\\GitHub\\ApiDotNet\\apiUsuarios\\apiFinal.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mlgua\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\mlgua\\.nuget\\packages\\microsoft.aspnetcore.cors\\2.2.0\\microsoft.aspnetcore.cors.2.2.0.nupkg.sha512",
