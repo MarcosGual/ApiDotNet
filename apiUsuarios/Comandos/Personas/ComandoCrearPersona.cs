@@ -1,19 +1,10 @@
-using System;
-
-namespace Models
+namespace Comandos.Personas
 {
-    public class Persona
+    public class ComandoCrearPersona
     {
-        public int Id { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public bool Soltero { get; set; }
-
-        public Persona()
-        {
-            Nombre = "";
-            Apellido = "";
-        }
     }
 }
