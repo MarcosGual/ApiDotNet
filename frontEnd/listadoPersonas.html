@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Listado de Personas</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link active" href="listaPersonas.html">Listado Personas</a>
+            </li>
+            <li class="nav-item">
+                <a href="listaPersonas.html" class="nav-link">Alta</a>
+            </li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="container-fluid bg-primary py-5">
+            <div class="container text-white">
+                <h1 class="display-3"><b>Información</b></h1>
+                <p class="lead">Listado de Personas</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <table class="table" id="tablaPersonas">
+                <thead>
+                    <tr>
+                        <th data-field="id">Id #</th>
+                        <th data-field="nombre">Nombre</th>
+                        <th data-field="apellido">Apellido</th>
+                        <th data-field="soltero">Soltero</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8= sha256-T+aPohYXbm0fRYDpJLr+zJ9RmYTswGsahAoIsNiMld4="
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            comando = {
+                "email": email,
+                "password": password
+            }
+            $.ajax({
+                type: "POST",
+                url: "https://localhost:7089/Usuario/Login",
+                data: JSON.stringify(comando),
+                dataType: "json",
+                contentType: "application/json",
+                success: function (result) {
+                    if (result.ok) {
+                        Swal.fire("Login exitoso!")
+                    } else {
+                        Swal.fire(result.error);
+                    }
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        });
+
+    </script>
+</body>
+
+</html>

@@ -8,7 +8,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors(o => o.AddPolicy("Prog3", builder =>
             {
-                builder.AllowAnyOrigin().AllowAnyOrigin()
+                builder.AllowAnyOrigin()
                 .AllowAnyMethod()
                 .AllowAnyHeader();
             }));
@@ -25,9 +25,19 @@ if (app.Environment.IsDevelopment())
 
 app.UseCors("Prog3");
 
+// app.Use((context,next)=>
+// {
+//     context.Items("__CorsMiddlewareInvoked")=true;
+//     return next;
+// });
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseStaticFiles();
+
+app.UseRouting();
 
 app.MapControllers();
 

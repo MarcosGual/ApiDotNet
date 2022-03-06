@@ -3,10 +3,12 @@ using Comandos.Personas;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using Resultados;
+using Microsoft.AspNetCore.Cors;
 
 namespace apiUsuarios.Controllers;
 
 [ApiController]
+[EnableCors("Prog3")]
 public class PersonaController : ControllerBase
 {
     public List<Persona> ListaPersonas { get; set; }

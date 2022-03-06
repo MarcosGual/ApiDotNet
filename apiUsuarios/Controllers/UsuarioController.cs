@@ -4,10 +4,12 @@ using Comandos.Usuarios;
 using Microsoft.AspNetCore.Mvc;
 using Models;
 using Resultados;
+using Microsoft.AspNetCore.Cors;
 
 namespace apiUsuarios.Controllers;
 
 [ApiController]
+[EnableCors("Prog3")]
 public class UsuarioController : ControllerBase
 {
     public List<Usuario> ListaUsuarios { get; set; }
