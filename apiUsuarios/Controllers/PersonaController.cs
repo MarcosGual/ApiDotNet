@@ -32,7 +32,7 @@ public class PersonaController : ControllerBase
     }
 
     [HttpGet]
-    [Route("Persona/ObtenerPersonas")]
+    [Route("Persona/Personas")]
     public ActionResult<List<Persona>> Get()
     {
         return ListaPersonas;
@@ -61,7 +61,7 @@ public class PersonaController : ControllerBase
         catch (Exception ex)
         {
             resultado.Ok = false;
-            resultado.Error = "Id no encontrado";
+            resultado.Error = "Id no encontrado - " + ex.Message;
 
             return resultado;
         }
@@ -107,12 +107,41 @@ public class PersonaController : ControllerBase
             return resultado;
         }
 
-        ListaPersonas[comando.IdPersona].Nombre = comando.Nombre;
-        ListaPersonas[comando.IdPersona].Apellido = comando.Apellido;
+        var existe = false;
 
+        var per = ListaPersonas.Where(o => o.Id == comando.IdPersona).FirstOrDefault();
+        if (per != null)
+        {
+            per.Nombre = comando.Nombre;
+            per.Apellido = comando.Apellido;
+            existe = true;
+        }
+        else
+            existe = false;
+
+        resultado.InfoAdicional = existe ? "La persona se ha podido encontrar exitosamente" : "Id no encontrado";
         resultado.Ok = true;
         resultado.Return = ListaPersonas;
 
         return resultado;
     }
+
+    // [HttpDelete]
+    // [Route("[controller]/#")]
+    // public ActionResult<ResultadoAPI> BorrarPersona(int IdPersona)
+    // {
+    //     var resultado = new ResultadoAPI();
+
+    //     var per = ListaPersonas.Where(o => o.Id == IdPersona).FirstOrDefault();
+    //     if (per != null)
+    //     {
+    //         ListaPersonas.RemoveAt(per.Id);
+    //     }
+    //     else
+    //         resultado.InfoAdicional = "Id no encontrado";
+    //     resultado.Ok = true;
+    //     resultado.Return = ListaPersonas;
+
+    //     return resultado;
+    // }
 }
