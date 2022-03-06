@@ -35,16 +35,20 @@ public class PersonaController : ControllerBase
 
     [HttpGet]
     [Route("Persona/Personas")]
-    public ActionResult<List<Persona>> Get()
+    public IEnumerable<Persona> Get()
     {
         return ListaPersonas;
     }
 
     [HttpGet]
-    [Route("Persona")]
-    public IEnumerable<Persona> GetPersonas()
+    [Route("Personas")]
+    public ActionResult<ResultadoAPI> GetPersonas()
     {
-        return ListaPersonas;
+        var resultado = new ResultadoAPI();
+        resultado.Ok = true;
+        resultado.Return = ListaPersonas;
+
+        return resultado;
     }
 
     [HttpGet]

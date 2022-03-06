@@ -77,22 +77,23 @@
                     "password": password
                 }
                 $.ajax({
-                type: "POST",
-                url: "https://localhost:7089/Usuario/Login",
-                data: JSON.stringify(comando),
-                dataType: "json",
-                contentType: "application/json",
-                success: function (result) {
-                    if (result.ok) {
-                        Swal.fire("Login exitoso!")
-                    } else {
-                        Swal.fire(result.error);
+                    type: "POST",
+                    url: "https://localhost:7089/Usuario/Login",
+                    data: JSON.stringify(comando),
+                    dataType: "json",
+                    contentType: "application/json",
+                    success: function (result) {
+                        if (result.ok) {
+                            localStorage.setItem("emailUsuario", result.return.email)
+                            window.location.replace("./listadoPersonas.html");
+                        } else {
+                            Swal.fire(result.error);
+                        }
+                    },
+                    error: function (error) {
+                        console.log(error);
                     }
-                },
-                error: function (error) {
-                    console.log(error);
-                }
-            });
+                });
             }
         });
 

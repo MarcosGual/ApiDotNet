@@ -17,10 +17,10 @@
     <div class="container-fluid">
         <ul class="nav justify-content-center">
             <li class="nav-item">
-                <a class="nav-link active" href="listaPersonas.html">Listado Personas</a>
+                <a class="nav-link active" href="listadoPersonas.html">Listado Personas</a>
             </li>
             <li class="nav-item">
-                <a href="listaPersonas.html" class="nav-link">Alta</a>
+                <a href="login.html" class="nav-link">Alta</a>
             </li>
         </ul>
     </div>
@@ -37,12 +37,15 @@
             <table class="table" id="tablaPersonas">
                 <thead>
                     <tr>
-                        <th data-field="id">Id #</th>
-                        <th data-field="nombre">Nombre</th>
-                        <th data-field="apellido">Apellido</th>
-                        <th data-field="soltero">Soltero</th>
+                        <th data-field="Id" scope="col">Id #</th>
+                        <th data-field="Nombre" scope="col">Nombre</th>
+                        <th data-field="Apellido" scope="col">Apellido</th>
+                        <th data-field="Soltero" scope="col">Soltero</th>
                     </tr>
                 </thead>
+                <tbody id="cuerpoTabla">
+
+                </tbody>
             </table>
         </div>
     </div>
@@ -62,29 +65,62 @@
 
     <script>
         $(document).ready(function () {
-
-            comando = {
-                "email": email,
-                "password": password
-            }
-            $.ajax({
-                type: "POST",
-                url: "https://localhost:7089/Usuario/Login",
-                data: JSON.stringify(comando),
-                dataType: "json",
-                contentType: "application/json",
-                success: function (result) {
-                    if (result.ok) {
-                        Swal.fire("Login exitoso!")
-                    } else {
-                        Swal.fire(result.error);
+            var emailUsuario = localStorage.setItem("emailUsuario");
+            if (emailUsuario === "" || emailUsuario == undefined) {
+                $.ajax({
+                    type: "GET",
+                    url: "https://localhost:7089/Personas",
+                    success: function (result) {
+                        if (result.ok) {
+                            Swal.fire("Login exitoso");
+                            crearTabla(result.return);
+                        } else {
+                            Swal.fire(result.error);
+                        }
+                    },
+                    error: function (error) {
+                        console.log(error);
                     }
-                },
-                error: function (error) {
-                    console.log(error);
-                }
-            });
+                });
+            } else {
+                Swal.fire("Error de validación. Ingrese al sistema...");
+                window.location.replace("./login.html")
+            }
         });
+
+        function crearTabla(datos) {
+            for (let index = 0; index < datos.length; index++) {
+                var html = "<tr>";
+                html += "<td>" + datos[index].id + "</td>";
+                html += "<td>" + datos[index].nombre + "</td>"
+                html += "<td>" + datos[index].apellido + "</td>"
+                if (datos[index].soltero) {
+                    html += "<td>Sí</td>"
+                } else {
+                    html += "<td>No</td>"
+                }
+                html += "</tr>";
+                $("#cuerpoTabla").append(html);
+            }
+        }
+        function crearTabla(datos) {
+
+            for (var i = 0; i < datos.length; i++) {
+                var html = "<tr>";
+                html += "<td>" + datos[i].id + "</td>";
+                html += "<td>" + datos[i].nombre + "</td>";
+                html += "<td>" + datos[i].apellido + "</td>";
+
+                if (datos[i].soltero) {
+                    html += "<td>" + "Si" + "</td>";
+                }
+                else {
+                    html += "<td>" + "No" + "</td>";
+                }
+                html += "</tr>";
+                $("#cuerpoTabla").append(html);
+            }
+        }
 
     </script>
 </body>
