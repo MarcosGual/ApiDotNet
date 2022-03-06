@@ -17,10 +17,10 @@
     <div class="container-fluid">
         <ul class="nav justify-content-center">
             <li class="nav-item">
-                <a class="nav-link active" href="listaPersonas.html">Listado Personas</a>
+                <a class="nav-link active" href="listadoPersonas.html">Listado Personas</a>
             </li>
             <li class="nav-item">
-                <a href="listaPersonas.html" class="nav-link">Alta</a>
+                <a href="login.html" class="nav-link">Alta</a>
             </li>
         </ul>
     </div>
@@ -61,6 +61,7 @@
     <script>
         $(document).ready(function () {
             $("#btnLogin").click(function () {
+                //localStorage.clear();
                 let email = $("#txtEmail").val();
                 let password = $("#txtPassword").val();
 
